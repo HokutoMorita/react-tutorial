@@ -18,5 +18,17 @@ $ npm install --save-dev react react-dom
 $ webpack --mode development
 ```
 
+## 開発時に使用するwebpackで用意されているwebサーバの起動
+```
+$ npm start
+```
+
+WebブラウザへのリクエストURL
+http://localhost:8080
+
+
 ## 参考資料
   - https://qiita.com/TsutomuNakamura/items/72d8cf9f07a5a30be048
+
+  - webpack-cliのバージョン違いによるエラーの対応方法
+    - https://zenn.dev/fuuukeee3/articles/ab4189779b6602457742
