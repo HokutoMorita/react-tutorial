@@ -33,3 +33,6 @@ http://localhost:8080
 
   - webpack-cliのバージョン違いによるエラーの対応方法
     - https://zenn.dev/fuuukeee3/articles/ab4189779b6602457742
+  
+  - Visual Studio Code + mac で非常に良く使うショートカット
+    - https://qiita.com/matsuyoro/items/bbf7ef7eb9f36b65cd27
