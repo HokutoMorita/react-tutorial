@@ -1,5 +1,6 @@
 # React.jsの勉強用リポジトリ
-
+## githubリポジトリ
+  - https://github.com/HokutoMorita/react-tutorial
 ## プロジェクト作成
 ```
 $ npm init
