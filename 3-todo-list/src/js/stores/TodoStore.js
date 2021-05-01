@@ -19,6 +19,8 @@ class TodoStore extends EventEmitter {
     }
 
     createTodo(text) {
+        console.log("テキストの確認");
+        console.log(text);
         const id = Date.now();
 
         this.todos.push({
@@ -27,6 +29,13 @@ class TodoStore extends EventEmitter {
             complete: false
         });
 
+        this.emit("change");
+    }
+
+    deleteTodo(id) {
+        this.todos = this.todos.filter(todo => todo.id !== id);
+        console.log("IDの確認");
+        console.log(id);
         this.emit("change");
     }
 
@@ -44,8 +53,11 @@ class TodoStore extends EventEmitter {
             case "CREATE_TODO": {
                 this.createTodo(action.text);
             }
-            case "RECEIVE_TODOS": {
-                this.receiveTodos(action.todos);
+            // case "RECEIVE_TODOS": {
+            //     this.receiveTodos(action.todos);
+            // }
+            case "DELETE_TODO": {
+                this.deleteTodo(action.id);
             }
         }
     }
