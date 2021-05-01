@@ -36,3 +36,7 @@ http://localhost:8080
   
   - Visual Studio Code + mac で非常に良く使うショートカット
     - https://qiita.com/matsuyoro/items/bbf7ef7eb9f36b65cd27
+  
+  - JSのスプレッド構文を理解する
+    - `<Todo key={todo.id} {...todo} />;`の`...演算子`を解読するのに必要
+    - https://qiita.com/akisx/items/682a4283c13fe336c547
