@@ -1,39 +1,38 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
+import axios from "axios";
+import { createLogger } from "redux-logger";
+// import thunk from "redux-thunk";
+import { createPromise } from 'redux-promise-middleware';
+const promise = createPromise({ types: { fulfilled: 'success' } });
 
-const userReducer = (state = {}, action) => {
+const initialState = {
+    fetching: false,
+    fetched: false,
+    users: [],
+    error: null
+};
+
+const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case "CHANGE_NAME":
-            state = {...state, name: action.payload};
-            break;
-        case "CHANGE_AGE":
-            state = {...state, age: action.payload};
-            break;
+        case "FETCH_USERS_PENDING":
+            return {...state, fetching: true};
+        case "FETCH_USERS_REJECTED":
+            return {...state, fetching: false, error: action.payload};
+        case "FETCH_USERS_FULFILLED":
+            return {
+                ...state, 
+                fetching: false,
+                fetched: true,
+                users: action.payload
+            };
     }
     return state;
-}
+};
 
-const tweetsReducer = (state = [], action) => {
-    switch(action.type) {
-        case "ADD_TWEET":
-            state = state.concat({id: Date.now(), text: action.payload});
-    }
-    return state;
-}
+const middleware = applyMiddleware(promise, createLogger());
+const store = createStore(reducer, middleware);
 
-const reducers = combineReducers({
-    user: userReducer,
-    tweets: tweetsReducer
+store.dispatch({
+    type: "FETCH_USERS",
+    payload: axios.get("http://localhost:18080")
 });
-
-const store = createStore(reducers);
-
-store.subscribe(() => {
-    console.log("store changed", store.getState());
-});
-
-store.dispatch({type: "FOO", payload: "BAR"});
-store.dispatch({type: "CHANGE_NAME", payload: "morita"});
-store.dispatch({type: "CHANGE_AGE", payload: 23});
-store.dispatch({type: "CHANGE_AGE", payload: 24});
-store.dispatch({type: "ADD_TWEET", payload: "OMG LIKE LOL"});
-store.dispatch({type: "ADD_TWEET", payload: "I am so like seriously like totally like right now"});
