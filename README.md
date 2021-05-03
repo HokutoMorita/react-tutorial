@@ -27,6 +27,9 @@ $ npm start
 WebブラウザへのリクエストURL
 http://localhost:8080
 
+## オンライン教材
+  - 苦しんで覚える React
+    - https://zenn.dev/sadness_ojisan/books/introduction-of-react-introduction
 
 ## 参考資料
   - https://qiita.com/TsutomuNakamura/items/72d8cf9f07a5a30be048
