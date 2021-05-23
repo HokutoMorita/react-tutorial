@@ -27,6 +27,13 @@ $ npm start
 WebブラウザへのリクエストURL
 http://localhost:8080
 
+
+## create-react-appの実行方法
+
+```sh
+$ npx create-react-app slamdunk-characters --template=typescript --use-npm
+```
+
 ## オンライン教材
   - 苦しんで覚える React
     - https://zenn.dev/sadness_ojisan/books/introduction-of-react-introduction
