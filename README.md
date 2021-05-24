@@ -31,8 +31,13 @@ http://localhost:8080
 ## create-react-appの実行方法
 
 ```sh
-$ npx create-react-app slamdunk-characters --template=typescript --use-npm
+$ npx create-react-app <プロジェクト名> --template=typescript --use-npm
 ```
+### semantic-uiのインストール方法
+```
+$ npm install semantic-ui-react semantic-ui-css
+```
+
 
 ## オンライン教材
   - 苦しんで覚える React
