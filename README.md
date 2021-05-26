@@ -34,10 +34,36 @@ http://localhost:8080
 $ npx create-react-app <プロジェクト名> --template=typescript --use-npm
 ```
 ### semantic-uiのインストール方法
-```
+```sh
 $ npm install semantic-ui-react semantic-ui-css
 ```
 
+### react-routerのインストール方法
+#### 1. react-routerをインストール
+```sh
+$ npm install react-router react-router-dom
+```
+#### 2. typesyncでTypeScriptにreact-routerの型ファイルを追加する
+##### 2-1. 下記コマンドを実行する
+```sh
+$ npm install -D typesync
+```
+
+##### 2-2. package.jsonのscriptsに下記の設定を追加する
+```json
+"scripts": {
+  ...
+  "preinstall": "typesync || :",
+  "postinstall": "typesync && npm install --ignore-scripts"
+  ...
+  }
+```
+
+##### 2-3. 2-2.までの設定内容を反映する
+```sh
+$ npm install
+$ npm run preinstall
+```
 
 ## オンライン教材
   - 苦しんで覚える React
@@ -55,3 +81,5 @@ $ npm install semantic-ui-react semantic-ui-css
   - JSのスプレッド構文を理解する
     - `<Todo key={todo.id} {...todo} />;`の`...演算子`を解読するのに必要
     - https://qiita.com/akisx/items/682a4283c13fe336c547
+  - TypeScriptの@typesパッケージをtypesyncで自動管理する
+     - https://qiita.com/yamadashy/items/225f287a25cd3f6ec151
