@@ -1,21 +1,31 @@
-import { VFC } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { VFC, useEffect } from 'react';
+import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router';
 
 import Home from './components/pages/Home';
-import User from './components/pages/User';
-import NotFound from './components/pages/NotFound';
+import Characters from './components/pages/Characters';
+import './App.css';
 
-const App: VFC = () => (
-  <Switch>
-    <Route exact path="/">
-      <Home />
-    </Route>
-    <Redirect from="/user/profile/:userId" to="/user/:userId" />
-    <Route path="/user/:userId">
-      <User />
-    </Route>
-    <Redirect push to="/" />
-  </Switch>
-);
+const App: VFC = () => {
+  const { hash, pathname } = useLocation();
+  const { action } = useHistory();
+
+  useEffect(() => {
+    if (!hash || action !== 'POP') {
+      window.scrollTo(0, 0);
+    }
+  }, [action, hash, pathname]);
+
+  return (
+    <div className="container">
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/characters" component={Characters} />
+        <Redirect to="/" />
+      </Switch>
+    </div>
+  );
+};
 
 export default App;

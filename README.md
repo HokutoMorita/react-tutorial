@@ -65,6 +65,13 @@ $ npm install
 $ npm run preinstall
 ```
 
+### react-helmetのインストール方法
+```sh
+$ npm install react-helmet
+$ npm run preinstall
+$ npm install --save-dev @types/react-helmet
+```
+
 ## オンライン教材
   - 苦しんで覚える React
     - https://zenn.dev/sadness_ojisan/books/introduction-of-react-introduction

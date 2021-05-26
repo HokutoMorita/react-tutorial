@@ -14,7 +14,7 @@ const EnhancedAllCharacters: VFC = () => {
         .flat()
         .sort((p, q) => ((p.height ?? 160) < (q.height ?? 160) ? -1 : 1));
 
-    return <AllCharacters characters={ characters } isLoading = { isLoading } />;
+    return <AllCharacters characters={characters} isLoading = {isLoading} />;
 };
 
 export default EnhancedAllCharacters;
