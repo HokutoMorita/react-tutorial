@@ -68,8 +68,16 @@ $ npm run preinstall
 ### react-helmetのインストール方法
 ```sh
 $ npm install react-helmet
+# typesyncでTypeScriptにreact-routerの型ファイルを追加する
 $ npm run preinstall
 $ npm install --save-dev @types/react-helmet
+```
+
+### reduxのインストール方法
+```sh
+$ npm install redux react-redux
+# typesyncでTypeScriptにreact-routerの型ファイルを追加する
+$ npm run preinstall
 ```
 
 ## オンライン教材
