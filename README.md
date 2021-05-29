@@ -32,6 +32,9 @@ http://localhost:8080
 
 ```sh
 $ npx create-react-app <プロジェクト名> --template=typescript --use-npm
+
+# redux-toolkitを使用したい場合
+$ npx create-react-app <プロジェクト名> --template redux-typescript --use-npm
 ```
 ### semantic-uiのインストール方法
 ```sh
